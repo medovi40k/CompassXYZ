@@ -1,4 +1,4 @@
-name: AdvancedHealth
-version: indev 1
+name: CompassXYZ
+version: indev 2
 main: ru.medovi40k.CompassXYZ
 softdepend: [ActionBarAPI]

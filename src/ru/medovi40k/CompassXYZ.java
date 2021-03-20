@@ -1,5 +1,7 @@
 package ru.medovi40k;
 
+import java.io.File;
+
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -7,11 +9,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CompassXYZ extends JavaPlugin {
 	public void onEnable(){
-		getLogger().info("enabled 1231 2133 12 3");
-		Bukkit.getPluginManager().registerEvents(new h(), this);
+		File config = new File(getDataFolder() + File.separator + "config.yml");
+		if(!config.exists()) {
+			getLogger().info("Loading config");
+			getConfig().options().copyDefaults(true);
+			saveDefaultConfig();
+		}
+		Bukkit.getPluginManager().registerEvents(new Handler(this), this);
+		getLogger().info("Enabled CompassXYZ");
 	}
 	public void onDisable() {
-		getLogger().info("disabledasdafssd sdf sd");
+		getLogger().info("Disabled CompassXYZ");
 	}
 	
 	
